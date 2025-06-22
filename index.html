@@ -666,8 +666,8 @@
         }
 
         .profile-img {
-            width: 250px;
-            height: 250px;
+            width: 380px;
+            height: 380px;
             border-radius: 50%;
             background: linear-gradient(135deg, #DAA520, #FFD700, #B8860B);
             display: flex;
@@ -683,8 +683,19 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
+            image-rendering: -webkit-optimize-contrast; /* Webkit browsers */
+            image-rendering: crisp-edges; /* Better edge rendering */
+            -ms-interpolation-mode: bicubic; /* IE */
         }
-
+        
+        .profile-img img {
+        width: 100%;
+        height: 150%;
+        object-fit: cover; /* Crops image to fill circle without distortion */
+        object-position: center 30px; /* Centers the image */
+        
+        }
+        
         .profile-img::before {
             content: '';
             position: absolute;
@@ -1278,7 +1289,9 @@
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <div class="profile-img">V</div>
+                    <div class="profile-img">
+                        <img src="images/me1.jpg" >
+                     </div>
                 </div>
                 <div class="about-text">
                     <h3>Hello, I'm Vyshnav</h3>
